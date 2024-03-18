@@ -1,0 +1,134 @@
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+\input{structure.tex}
+\hbadness=10000
+% TITLE PAGE
+\title{CIS 124: Intro to Data Science}
+\author{\authorstyle{Miles Kent}}
+\date{}
+\begin{document}
+\graphicspath{ {./images/} }
+
+\maketitle
+
+
+    Data Visualization, Causality and Experiments\\
+    Python Expression, Strings and Table methods\\
+    Charts and Histograms\\
+    Probability and Iteration, Sampling, Simulation\\
+    Hypothesis Testing and Models\\
+    Data interpretation related to the above\\
+
+    \section{Section 2}
+    Observation vs Experiment\\
+    What constitutes causation?\\
+
+    \section{Section 3}
+    Basic Python \& its conventions\\
+    \subsection{Table().select()}
+    tbl.select("Col1", "Col2", ...)
+    \subsection{Table().sort()}
+    tbl.sort("Col", descending=$\textbf{BOOL}$)\\
+    descending = True $\rightarrow$ big to small\\
+
+    \section{Section 4}
+    \subsection{make\_array(...)}
+    Not really a vector. Element wise operations, i.e. when you multiply two 1D arrays it doesn't dot them, it multiplies each corresponding element and gives the resultant array. It's more of a table column except it's not in a Table() yet.\\
+    make\_array(1, 2, 3, 4)\\
+    \subsection{Table().column(...)}
+    Table().column(nameorindex)\\
+    Outputs array\\
+
+
+    \section{Section 5}
+    Table().num\_rows\\
+    Table().num\_columns\\
+    Table().labels\\
+    \subsection{Table().relabled(...)}
+    Table().relabeled("col1name", "NEWNAME")
+    \subsection{Table.read\_table(...)}
+    Table.read\_table("filename.csv")\\
+    \subsection{Table().with\_columns(...)}
+    Table().with\_columns("col1name", col1arr, ...)\\
+    \subsection{Table().drop(...)}
+    Table().drop("col1name", ...)\\
+    \subsection{Table().take(...)}
+    Table().take(rowindicestouse)\\
+    \subsection{Table().where(...)}
+    Table().take("colname", condition)\\
+    condition uses "are" syntax.\\
+    are.equal\_to()\\
+    are.above()\\
+    are.above\_or\_equal\_to()\\
+    are.below()\\
+    are.below\_or\_equal\_to()\\
+    are.between()\quad [A, B)\\
+    are.between\_or\_equal\_to()\quad [A, B)\\
+    are.contained\_in()\\
+    are.containing()\\
+    are.strictly\_between()\quad (A, B)\\
+
+    \section{Section 6}
+    \subsection{Table().barh(...)}
+    Table().barh(yaxiscategoriescolumn)
+    Table().barh(yaxiscategoriescolumn, values)
+    \subsection{Table().show(...)}
+    Table().show(num)
+
+    \section{Section 7}
+    \subsection{Table().scatter(...)}
+    Table().scatter(xcol, ycol, fit\_line=BOOL)\\
+    \subsection{Table.plot(...)}
+    Table().plot(xcol, ycol)\\
+    Similar to scatter but it connects the dots\\
+
+    \section{Section 8}
+    \subsection{Table().hist(...)}
+    Table().hist("colname", bins=make\_array(...))\\
+
+    \section{Section 9}
+    \subsection{Table().apply(...)}
+    Table().apply(functionname, "columnname")\\
+
+    \section{Section 10}
+    \subsection{Table().group(...)}
+    Table().group(columnname(s))\\
+    Table().group(columnname(s), func)\\
+    Rows are grouped by unique values. Func would be something that takes an arrat and returns a single value.
+    \subsection{Table.pivot(...)}
+    Table.pivot("col1name", "col2name", ...)\\
+    Table.pivot("col1name", "col2name", ..., values="colXname", collect=func)\\
+    Col1 is x categories, Col2 is y categories, values is the data points in each box, collect is the function that is applied to each categorical data point, e.g. collect=sum would give you the sum for each one.
+
+    \section{Section 11}
+    \subsection{Table().join(...)}
+    tbl1.join("colthingfrom1", tbl2, "colsamethingfrom2")
+    Joins two tables based on a like category/column.
+
+    \section{Section 12}
+    Yawn...\\
+
+    \section{Section 13}
+    Loops and also you can iterate over make\_array(...) btw.\\
+
+    \section{Section 14}
+    P(Both A and B) = P(A) * P(B) if independent\\
+    If A can only happen in one of two possibilities, P(A) = P(A1) + P(A2)\\
+
+
+    \section{Section 15}
+    Deterministic vs Probability vs Uniform Random Sample\\
+    $textbf{Deterministic:}$ you just choose some values for a sample. For example, I choose 3, 18, and 100 for my sample.\\
+    $textbf{Probability:}$ a sample for which you can calculate the probability of any subset being the sample before the sample has been drawn.\\
+    $textbf{Uniform Random:}$ randomly chosen.\\
+    Also understand the law of large numbers.\\
+    Whatever vairation distance is.
+    \section{Section 16-18}
+    Stats stuff.\\
+
+    \section{Section 19}
+    \subsection{Table().sample(...)}
+    Table.sample(nrows, with\_replacement=BOOL)\\
+
+\end{document}
+
